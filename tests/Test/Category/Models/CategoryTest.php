@@ -4,8 +4,9 @@ namespace Test\Category\Models;
 
 use ChimeraRocks\Category\Models\Category;
 use Illuminate\Validation\Validator;
-use Test\AbstactTestCase;
 use Mockery;
+use Test\AbstactTestCase;
+use Test\Stubs\Models\Post;
 
 class CategoryTest extends AbstactTestCase
 {
@@ -85,5 +86,25 @@ class CategoryTest extends AbstactTestCase
 
 		$this->assertEquals('CategoryTest', $child->name);
 		$this->assertEquals('ParentTest', $child->parent->name);
+	}
+
+	public function test_can_add_posts_to_categories()
+	{
+		$category = Category::create(['name' => 'Category', 'active' => true]);
+		$post = Post::create(['title' => 'my post 1']);
+		$post2 = Post::create(['title' => 'my post 2']);
+
+		$post->categories()->save($category);
+		$post2->categories()->save($category);
+
+		$categories = Category::all();
+
+		$this->assertCount(1, $categories);
+		$this->assertEquals('Category', $post->categories->first()->name);
+		$this->assertEquals('Category', $post2->categories->first()->name);
+		$posts = Category::find(1)->posts;
+		$this->assertCount(2, $posts);
+		$this->assertEquals('my post 1', $posts[0]->title);
+		$this->assertEquals('my post 2', $posts[1]->title);
 	}
 }

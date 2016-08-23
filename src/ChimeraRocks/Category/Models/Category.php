@@ -6,6 +6,7 @@ use Cviebrock\EloquentSluggable\SluggableInterface;
 use Cviebrock\EloquentSluggable\SluggableTrait;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Database\Eloquent\Model;
+use Test\Stubs\Models\Post;
 
 class Category extends Model implements SluggableInterface
 {
@@ -39,9 +40,9 @@ class Category extends Model implements SluggableInterface
 		return $this->hasMany(Category::class, 'parent_id');
 	}
 
-	public function categorizable()
+	public function posts()
 	{
-		return $this->morphTo();
+		return $this->morphedByMany(Post::class, 'categorizable', 'chimerarocks_categorizables');
 	}
 
 	public function setValidator(Validator $validator)

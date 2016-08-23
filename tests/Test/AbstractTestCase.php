@@ -29,6 +29,9 @@ abstract class AbstactTestCase extends TestCase
 		$this->artisan('migrate', [
 			'--realpath' => realpath(__DIR__ . '/../../src/resources/migrations')
 		]);
+		$this->artisan('migrate', [
+			'--realpath' => realpath(__DIR__ . '/resources/migrations')
+		]);
 	}
 
 	public function getPackageProviders($app)
