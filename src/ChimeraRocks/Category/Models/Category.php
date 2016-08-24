@@ -2,11 +2,12 @@
 
 namespace ChimeraRocks\Category\Models;
 
+use ChimeraRocks\Category\Models\Contracts\PostInterface;
 use Cviebrock\EloquentSluggable\SluggableInterface;
 use Cviebrock\EloquentSluggable\SluggableTrait;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Database\Eloquent\Model;
-use Test\Stubs\Models\Post;
+use Illuminate\Support\Facades\App;
 
 class Category extends Model implements SluggableInterface
 {
@@ -42,7 +43,8 @@ class Category extends Model implements SluggableInterface
 
 	public function posts()
 	{
-		return $this->morphedByMany(Post::class, 'categorizable', 'chimerarocks_categorizables');
+		$post = App::make(PostInterface::class);
+		return $this->morphedByMany($post, 'categorizable', 'chimerarocks_categorizables');
 	}
 
 	public function setValidator(Validator $validator)

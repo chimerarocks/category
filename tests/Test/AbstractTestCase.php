@@ -2,6 +2,7 @@
 
 namespace Test;
 
+use Illuminate\Support\Facades\App;
 use Orchestra\Testbench\TestCase;
 
 abstract class AbstactTestCase extends TestCase

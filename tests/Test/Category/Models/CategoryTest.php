@@ -3,6 +3,7 @@
 namespace Test\Category\Models;
 
 use ChimeraRocks\Category\Models\Category;
+use Illuminate\Support\Facades\App;
 use Illuminate\Validation\Validator;
 use Mockery;
 use Test\AbstactTestCase;
@@ -14,6 +15,11 @@ class CategoryTest extends AbstactTestCase
 	{
 		parent::setUp();
 		$this->migrate();
+		App::bind(
+	    	\ChimeraRocks\Category\Models\Contracts\PostInterface::class, function () {
+				return \Test\Stubs\Models\Post::class;
+	    	}
+		);
 	}
 
 	public function __construct()

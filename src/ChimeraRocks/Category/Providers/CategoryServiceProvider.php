@@ -29,5 +29,9 @@ class CategoryServiceProvider extends ServiceProvider
 			\ChimeraRocks\Category\Repositories\CategoryRepositoryInterface::class,
 				\ChimeraRocks\Category\Repositories\CategoryRepositoryEloquent::class
 		);
+		$this->app->bind(
+			\ChimeraRocks\Category\Models\PostInterface::class,
+				\Test\Stubs\Models\Post::class
+		);
 	}
 }
