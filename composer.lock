@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7fae223260f1c59b3cb330388c8466f3",
-    "content-hash": "39db8aa5f452a68fe08d5fd93368e73a",
+    "hash": "5eda26f66f34748b04a6f00eeb9960bf",
+    "content-hash": "070f0a57435918384ff84070c11b11be",
     "packages": [
         {
             "name": "chimerarocks/database",
@@ -60,7 +60,7 @@
         },
         {
             "name": "chimerarocks/user",
-            "version": "dev-master",
+            "version": "0.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/chimerarocks/user.git",
@@ -90,10 +90,7 @@
                     "Test\\": "tests/Test"
                 }
             },
-            "support": {
-                "source": "https://github.com/chimerarocks/user/tree/master",
-                "issues": "https://github.com/chimerarocks/user/issues"
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "time": "2016-08-27 13:52:45"
         },
         {
@@ -3667,9 +3664,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "chimerarocks/user": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
