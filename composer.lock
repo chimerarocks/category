@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a48abcd357f1e6fa29102371d86b05c2",
-    "content-hash": "54f645f9f11306fa6d20975392128f05",
+    "hash": "7fae223260f1c59b3cb330388c8466f3",
+    "content-hash": "39db8aa5f452a68fe08d5fd93368e73a",
     "packages": [
         {
             "name": "chimerarocks/database",
@@ -57,6 +57,44 @@
             ],
             "description": "A Repository pattern implementation library that was part of a Code Education course. But i decide to keep with the project.",
             "time": "2016-08-20 00:33:49"
+        },
+        {
+            "name": "chimerarocks/user",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/chimerarocks/user.git",
+                "reference": "bdee4d301583fbdf7aa98febc706aa482cb5d9e3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/chimerarocks/user/zipball/bdee4d301583fbdf7aa98febc706aa482cb5d9e3",
+                "reference": "bdee4d301583fbdf7aa98febc706aa482cb5d9e3",
+                "shasum": ""
+            },
+            "require": {
+                "chimerarocks/database": "0.0.2",
+                "illuminate/auth": "~5.2",
+                "illuminate/support": "~5.2",
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9.2",
+                "orchestra/testbench": "~3.0",
+                "phpunit/phpunit": "~5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ChimeraRocks\\User\\": "src/ChimeraRocks/User",
+                    "Test\\": "tests/Test"
+                }
+            },
+            "support": {
+                "source": "https://github.com/chimerarocks/user/tree/master",
+                "issues": "https://github.com/chimerarocks/user/issues"
+            },
+            "time": "2016-08-27 13:52:45"
         },
         {
             "name": "classpreloader/classpreloader",
@@ -3629,7 +3667,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "chimerarocks/user": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
