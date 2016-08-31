@@ -13,6 +13,7 @@
 					<th>#</th>
 					<th>Name</th>
 					<th>Status</th>
+					<th>User</th>
 					<th>Action</th>
 				</tr>
 			</thead>
@@ -22,6 +23,7 @@
 					<td>{{$category->id}}</td>
 					<td>{{$category->name}}</td>
 					<td>{{$category->active}}</td>
+					<td>{{$category->user->email}}</td>
 					<td><a href="{{route('admin.categories.edit', ['id' => $category->id])}}">Update</a></td>
 				@empty
 					<td colspan="4"> Nenhuma categoria registrada </td>

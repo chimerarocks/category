@@ -5,6 +5,7 @@ namespace ChimeraRocks\Category\Controllers;
 use ChimeraRocks\Category\Repositories\CategoryRepositoryInterface;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class AdminCategoryController extends Controller
 {
@@ -38,6 +39,10 @@ class AdminCategoryController extends Controller
 
 	public function edit($id)
 	{
+		if(Gate::denies('update-category', Category::find($id))) {
+			abort(403);
+		}
+		
 		$category = $this->categoryRepository->find($id);
 		$categories = $this->categoryRepository->all();
 		return $this->response->view('chimeracategory::edit', compact('category', 'categories'));
@@ -45,6 +50,10 @@ class AdminCategoryController extends Controller
 
 	public function update(Request $request, $id)
 	{
+		if(Gate::denies('update-category', Category::find($id))) {
+			abort(403);
+		}
+
 		$data = $request->all();
 		if (!isset($data['active'])) {
 			$data['active'] = false;
