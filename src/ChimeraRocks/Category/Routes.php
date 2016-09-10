@@ -4,7 +4,7 @@ Route::group([
 	'prefix' => 'admin/categories', 
 	'namespace' => 'ChimeraRocks\Category\Controllers',
 	'as' => 'admin.categories.',
-	'middleware' => ['web', 'auth']
+	'middleware' => ['web', 'auth', 'authorization:access_categories']
 	], function() {
 	Route::get('/', ['uses' => 'AdminCategoryController@index', 'as' => 'index']);
 	Route::get('/create', ['uses' => 'AdminCategoryController@create', 'as' => 'create']);

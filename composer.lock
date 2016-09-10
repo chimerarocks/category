@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5eda26f66f34748b04a6f00eeb9960bf",
-    "content-hash": "070f0a57435918384ff84070c11b11be",
+    "hash": "c0ccd9c5127bd78b150cd6ee53405740",
+    "content-hash": "fd0bdb36b6aa5e3a7e0ff9296cee015c",
     "packages": [
         {
             "name": "chimerarocks/database",
@@ -60,16 +60,16 @@
         },
         {
             "name": "chimerarocks/user",
-            "version": "0.0.1",
+            "version": "0.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/chimerarocks/user.git",
-                "reference": "bdee4d301583fbdf7aa98febc706aa482cb5d9e3"
+                "reference": "aea69988c8d164869c6e7df889ed1db752cddafb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/chimerarocks/user/zipball/bdee4d301583fbdf7aa98febc706aa482cb5d9e3",
-                "reference": "bdee4d301583fbdf7aa98febc706aa482cb5d9e3",
+                "url": "https://api.github.com/repos/chimerarocks/user/zipball/aea69988c8d164869c6e7df889ed1db752cddafb",
+                "reference": "aea69988c8d164869c6e7df889ed1db752cddafb",
                 "shasum": ""
             },
             "require": {
@@ -80,8 +80,8 @@
             },
             "require-dev": {
                 "mockery/mockery": "~0.9.2",
-                "orchestra/testbench": "~3.0",
-                "phpunit/phpunit": "~5.0"
+                "orchestra/testbench": "~3.2.0",
+                "phpunit/phpunit": "~4.0"
             },
             "type": "library",
             "autoload": {
@@ -91,7 +91,7 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
-            "time": "2016-08-27 13:52:45"
+            "time": "2016-09-10 20:19:43"
         },
         {
             "name": "classpreloader/classpreloader",
