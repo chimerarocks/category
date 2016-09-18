@@ -23,10 +23,6 @@ abstract class AbstactTestCase extends TestCase
 	        'database' => ':memory:',
 	        'prefix'   => '',
 	    ]);
-		$app->bind(
-			\ChimeraRocks\Category\Models\Contracts\PostInterface::class,
-				\Test\Stubs\Models\Post::class
-		);
 	}
 
 	public function migrate()

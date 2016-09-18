@@ -2,12 +2,15 @@
 
 namespace Test\Category\Models;
 
+use ChimeraRocks\Category\Criterias\Eloquent\FindByCategoryCriteria;
 use ChimeraRocks\Category\Models\Category;
+use ChimeraRocks\Category\Repositories\CategoryRepositoryEloquent;
 use Illuminate\Support\Facades\App;
 use Illuminate\Validation\Validator;
 use Mockery;
 use Test\AbstactTestCase;
 use Test\Stubs\Models\Post;
+use Test\Stubs\Models\PostRepositoryEloquent;
 
 class CategoryTest extends AbstactTestCase
 {
@@ -15,7 +18,6 @@ class CategoryTest extends AbstactTestCase
 	{
 		parent::setUp();
 		$this->migrate();
-		
 	}
 
 	public function __construct()
@@ -90,7 +92,7 @@ class CategoryTest extends AbstactTestCase
 		$this->assertEquals('ParentTest', $child->parent->name);
 	}
 
-	public function test_can_add_posts_to_categories()
+	public function test_can_add_stub_posts_to_categories()
 	{
 		$category = Category::create(['name' => 'Category', 'active' => true]);
 		$post = Post::create(['title' => 'my post 1']);
@@ -100,11 +102,15 @@ class CategoryTest extends AbstactTestCase
 		$post2->categories()->save($category);
 
 		$categories = Category::all();
-
 		$this->assertCount(1, $categories);
+
 		$this->assertEquals('Category', $post->categories->first()->name);
 		$this->assertEquals('Category', $post2->categories->first()->name);
-		$posts = Category::find(1)->posts;
+
+		$postRepository = new PostRepositoryEloquent(new CategoryRepositoryEloquent());
+		$postRepository->addCriteria(new FindByCategoryCriteria(1));
+
+		$posts = $postRepository->all();
 		$this->assertCount(2, $posts);
 		$this->assertEquals('my post 1', $posts[0]->title);
 		$this->assertEquals('my post 2', $posts[1]->title);
